@@ -14,16 +14,11 @@ OpenIEC is an open-source code for interfacial energy calculation in alloys and 
 For assistance and/or collaboration opportunities, please contact the author by e-mail (@gmail.com) or using the issue tracker on GitHub.
 
 **Framework of OpenIEC code**
-<center>
-<img src="./figures/framework.jpg" alt="framework" width="600"/> 
-</center>
+<p align="center">
+<img src="./figures/framework.jpg" alt="framework" width="500"/> 
+</p>
 
 The coupling with the [CALculation of PHAse Diagram (CALPHAD)](https://en.wikipedia.org/wiki/CALPHAD) thermodynamic and molar volume databases was facilitated in OpenIEC for providing the necessary thermodynamic information. For the coupling to thermodynamic database, the integration with the [Pycalphad](https://pycalphad.org) software package is to be performed. With OpenIEC, the temperature- and composition-dependent interfacial energies in alloys with any arbitrary number of components can be conveniently evaluated.
-<!-- <center>
-<img src="./figures/framework.jpg" alt="framework" width="600"/> 
-</center>
- <div align="center"> Framework of OpenIEC code </div>
-</br> -->
 
 OpenIEC is licensed under the MIT License. See [LICENSE.txt](./LICENSE.txt) for details.
 
@@ -127,18 +122,18 @@ Output: 0.16942787117258445
 
 ### Representative results
 - Calculated interfacial energies of coherent *γ*/*γ'* interface in the Ni-Al system using OpenIEC, compared with literature data.
-<center>
-<img src="./figures/NiAl-coherent.jpg" alt="NiAl-coherent" width="600"/> 
-</center>
+<p align="center">
+<img src="./figures/NiAl-coherent.jpg" alt="NiAl-coherent" width="500"/> 
+</p>
 </br>
 
 - Model-predicted interfacial energies of the coherent *γ*/*γ'* interface in the Ni-Al-Cr system at 873 K, 1073K and 1273 K.
-<center>
-<img src="./figures/NiAlCr-coherent-873-1073-1273K.jpg" alt="NiAlCr-coherent" width="800"/> 
-</center>
+<p align="center">
+<img src="./figures/NiAlCr-coherent-873-1073-1273K.jpg" alt="NiAlCr-coherent" width="650"/> 
+</p>
 </br>
 
 - Model-predicted interfacial energy cube of coherent *γ*/*γ'* interface in the Ni-Al-Cr-Re system at 1273 K.
-<center>
-<img src="./figures/NiAlCrRe-coherent-1273K.jpg" alt="NiAlCrRe-coherent" width="700"/> 
-</center>
+<p align="center">
+<img src="./figures/NiAlCrRe-coherent-1273K.jpg" alt="NiAlCrRe-coherent" width="580"/> 
+</p>
