@@ -1,0 +1,134 @@
+$***********************************************************************
+$***************************  Al-Ni-Ansara-1997.TDB  ****************************
+
+$
+$ ELEMENT STABLE ELEMENT REFERENCE  MASS        H298-H0     S298
+  ELEMENT VA     VACUUM             0.0000E+00  0.0000E+00  0.0000E+00 !
+  ELEMENT AL     FCC_A1             2.6982E+01  4.5773E+03  2.8322E+01 !
+  ELEMENT NI     FCC_A1             5.8690E+01  4.7870E+03  2.9796E+01 !
+$
+$---------Al-------- 
+ FUNCTION GHSERAL 298.14 -7976.15+137.093038*T-24.3671976*T*LN(T)
+         -.001884662*T**2-8.77664E-07*T**3+74092*T**(-1);    700.00 Y
+         -11276.24+223.048446*T-38.5844296*T*LN(T)+.018531982*T**2
+         -5.764227E-06*T**3+74092*T**(-1);                   933.47 Y
+         -11278.378+188.684153*T-31.748192*T*LN(T)
+         -1.230524E+28*T**(-9);                              2900.00 N !
+ FUNCTION GALLIQ 298.14  +11005.029-11.841867*T+GHSERAL
+         +7.9337E-20*T**7;                                   700.00 Y 
+         +11005.03-11.841867*T+GHSERAL+7.9337E-20*T**7;      933.47 Y
+         -795.996+177.430178*T-31.748192*T*LN(T);            2900.00 N !
+ FUNCTION GALBCC  298.14  +10083-4.813*T+GHSERAL;            2900.00 N !
+$
+$---------NI--------
+ FUNCTION GHSERNI 298.14 -5179.159+117.854*T-22.096*T*LN(T)
+         -.0048407*T**2;                                     1728.00 Y
+         -27840.655+279.135*T-43.1*T*LN(T)+1.12754E+31*T**(-9); 
+                                                             3000.00 N !
+ FUNCTION GNILIQ 298.14  +16414.686-9.397*T+GHSERNI
+         -3.82318E-21*T**7;                                  1728.00 Y
+         -9549.775+268.598*T-43.1*T*LN(T);                   3000.00 N !
+ FUNCTION GNIBCC 298.14 +8715.084-3.556*T+GHSERNI;           3000.00 N !
+$
+$------------------------------------
+ TYPE-DEFINITION % SEQ * !
+ TYPE-DEFINITION G SEQ * !
+ DEF-SYSTEM-DEFAULT ELEMENT 2 !
+ DEFAULT-COMMAND DEF-SYS-ELEMENT VA !
+$------------------------------------
+$
+$-------LIQUID-------
+ PHASE LIQUID % 1 1.0 !
+ CONSTITUENT LIQUID :AL,NI: !
+ PARAMETER G(LIQUID,AL;0) 298.15 +GALLIQ;                   3000.00 N !
+ PARAMETER G(LIQUID,NI;0) 298.15 +GNILIQ;                   3000.00 N !
+ PARAMETER L(LIQUID,AL,NI;0) 298.15 -207109.28+41.31501*T;  3000.00 N !
+ PARAMETER L(LIQUID,AL,NI;1) 298.15 -10185.79+5.87140*T;    3000.00 N !
+ PARAMETER L(LIQUID,AL,NI;2) 298.15 +81204.81-31.95713*T;   3000.00 N !
+ PARAMETER L(LIQUID,AL,NI;3) 298.15 +4365.35-2.51632*T;     3000.00 N !
+ PARAMETER L(LIQUID,AL,NI;4) 298.15 -22101.64+13.16341*T;   3000.00 N !
+$
+$-------AL3NI2---------
+ PHASE AL3NI2 % 3 3 2 1 !
+ CONSTITUENT AL3NI2 :AL:AL,NI:NI,VA: !
+ PARAMETER G(AL3NI2,AL:NI:VA;0) 298.14 -357725.92+68.32200*T+3*GALBCC
+                                       +2*GNIBCC;                 3000.00 N !
+ PARAMETER G(AL3NI2,AL:NI:NI;0) 298.15 -427191.90+79.21725*T+3*GALBCC
+                                       +3*GNIBCC;                 3000.00 N !
+ PARAMETER G(AL3NI2,AL:AL:NI;0) 298.15 -39465.978+7.89525*T+5*GALBCC
+                                       +GNIBCC;                   3000.00 N !
+ PARAMETER G(AL3NI2,AL:AL:VA;0) 298.15 +30000-3.0*T+5*GALBCC;     3000.00 N !
+ PARAMETER L(AL3NI2,AL:AL,NI:NI;0) 298.15 -193484.18+131.79000*T; 3000.00 N !
+ PARAMETER L(AL3NI2,AL:AL,NI:VA;0) 298.15 -193484.18+131.79000*T; 3000.00 N !
+ PARAMETER L(AL3NI2,AL:AL:NI,VA;0) 298.15 -22001.70+7.03320*T;    3000.00 N !
+ PARAMETER L(AL3NI2,AL:NI:NI,VA;0) 298.15 -22001.70+7.03320*T;    3000.00 N !
+$
+$--------AL3NI--------
+ PHASE AL3NI % 2 0.75 0.25 !
+ CONSTITUENT AL3NI :AL:NI: !
+ PARAMETER G(AL3NI,AL:NI;0) 298.15 -48483.73+12.29913*T+0.75*GHSERAL
+                                   +0.25*GHSERNI;                 3000.00 N !
+$
+$--------AL3NI5--------
+ PHASE AL3NI5 % 2 0.375 0.625 !
+ CONSTITUENT AL3NI5 :AL:NI: !
+ PARAMETER G(AL3NI5,AL:NI;0) 298.15 -55507.76+7.2648*T+0.375*GHSERAL
+                                   +0.625*GHSERNI;                3000.00 N !
+$
+$------BCC_A2-----------
+ TYPE_DEFINITION & GES A_P_D BCC_A2 MAGNETIC -1.0 0.40 !
+ PHASE BCC_A2 %& 1 1.0 !
+ CONSTITUENT BCC_A2 :AL,NI: !
+ PARAMETER G(BCC_A2,AL;0) 298.15 +GALBCC;                         3000.00 N !
+ PARAMETER G(BCC_A2,NI;0) 298.15 +GNIBCC;                         3000.00 N !
+ PARAMETER TC(BCC_A2,NI;0) 298.15 575;                            3000.00 N !
+ PARAMETER BMAGN(BCC_A2,NI;0) 298.15 0.85;                        3000.00 N !
+$
+$-------BCC_B2--------
+ PHASE BCC_B2 % 2 1 1 !
+ CONSTITUENT BCC_B2 :AL,NI:NI,VA: !
+ PARAMETER G(BCC_B2,AL:NI;0) 298.15 -152397.30+26.40575*T+GALBCC
+                                    +GNIBCC;                      3000.00 N !
+ PARAMETER G(BCC_B2,AL:VA;0) 298.15 10000-1*T+GALBCC;             3000.00 N !
+ PARAMETER G(BCC_B2,NI:NI;0) 298.15 +2*GNIBCC;                    3000.00 N !
+ PARAMETER G(BCC_B2,NI:VA;0) 298.15 162397.3-27.40575*T+GNIBCC;   3000.00 N !
+ PARAMETER L(BCC_B2,AL,NI:NI;0) 298.15 -52440.88+11.30117*T;      3000.00 N !
+ PARAMETER L(BCC_B2,AL,NI:VA;0) 298.15 -52440.88+11.30117*T;      3000.00 N !
+ PARAMETER L(BCC_B2,AL:NI,VA;0) 298.15 -64024.38+26.49419*T;      3000.00 N !
+ PARAMETER L(BCC_B2,NI:NI,VA;0) 298.15 -64024.38+26.49419*T;      3000.00 N !
+$Treats BCC_A2 and BCC_B2 as separated phases!!
+$
+$-------FCC_A1--------
+ TYPE-DEFINITION A GES A_P_D FCC_A1 MAGNETIC -3 0.28 !
+ PHASE FCC_A1 %A  1 1.0 !
+ CONSTITUENT FCC_A1 :AL,NI : !
+ PARAMETER G(FCC_A1,AL;0) 298.15 +GHSERAL;                        3000.00 N !
+ PARAMETER G(FCC_A1,NI;0) 298.15 +GHSERNI;                        3000.00 N !
+ PARAMETER L(FCC_A1,AL,NI;0) 298.15 -162407.750+16.212965*T;      3000.00 N !
+ PARAMETER L(FCC_A1,AL,NI;1) 298.15 +73417.798-34.914000*T;       3000.00 N !
+ PARAMETER L(FCC_A1,AL,NI;2) 298.15 +33471.014-9.837000*T;        3000.00 N !
+ PARAMETER L(FCC_A1,AL,NI;3) 298.15 -30758.010+10.253000*T;       3000.00 N !
+ PARAMETER TC(FCC_A1,NI;0)   298.15 +633;                         3000.00 N !
+ PARAMETER BMAGN(FCC_A1,NI;0) 298.15 +0.52;                       3000.00 N !
+$
+$$--------FCC_L12---------
+$ TYPE_DEFINITION D GES A_P_D L12 DIS_PART FCC_A1,,,!
+$$ TYPE_DEFINITION G IF (AL AND NI) THEN 
+$$ GES AMEND_PHASE_DESCR L12 COMP_SETS 2 NI:AL:VA !
+$ FUNCTION U1 298.15 -13415.515+2.0819247*T;                       3000.00 N !
+$ FUNCTION U4 298.15 +7088.736-3.6868954*T;                        3000.00 N !
+$ PHASE L12 %ADG 2 0.75 0.25 !
+$ CONSTITUENT L12 :AL,NI:AL,NI: ! 
+$ PARAMETER G(L12,AL:AL;0) 298.15 +0;                              3000.00 N !
+$ PARAMETER G(L12,AL:NI;0) 298.15 +3*U1;                           3000.00 N !
+$ PARAMETER G(L12,NI:AL;0) 298.15 +3*U1;                           3000.00 N !
+$ PARAMETER G(L12,NI:NI;0) 298.15 +0;                              3000.00 N !
+$ PARAMETER L(L12,AL,NI:NI;0) 298.15 +6*U1;                        3000.00 N !
+$ PARAMETER L(L12,AL,NI:NI;1) 298.15 +3*U4;                        3000.00 N !
+$ PARAMETER L(L12,AL,NI:AL;0) 298.15 +6*U1;                        3000.00 N !
+$ PARAMETER L(L12,AL,NI:AL;1) 298.15 +3*U4;                        3000.00 N !
+$ PARAMETER L(L12,AL:AL,NI;1)  298.15 +U4;                         3000.00 N !
+$ PARAMETER L(L12,NI:AL,NI;1)  298.15 +U4;                         3000.00 N !
+$$Treats FCC_A1 and L12 as the same phase!!
+$-----
+ DATABASE-INFO 'FOR THE AL-NI SYSTEM' !
