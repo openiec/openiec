@@ -7,9 +7,11 @@
 
 Developed by Shenglan Yang, Jing Zhong, Lijun Zhang at Central South University in China.
 
+**News:** OpenIEC 1.0 was released on Jan. 27, 2019.
+
 **Notes:** If you use OpenIEC in your research or publish, please cite or acknowledge the following work :
 
-> Shenglan Yang, Jing Zhong, Jiong Wang, Lijun Zhang*, George Kaptay. OpenIEC: An open-source code for interfacial energy calculation in alloys[J]. To be submitted. DOI: http://doi.org/.
+> Shenglan Yang, Jing Zhong, Jiong Wang, Lijun Zhang*, George Kaptay. OpenIEC: An open-source code for interfacial energy calculation in alloys. Submitted. 
 
 OpenIEC is an open-source code for interfacial energy calculation in alloys and was developed by following interfacial energy calculation models on coherent and solid/liquid interfaces developed by George Kaptay (*Acta Mater.*, 60 (2012) 6804-6813 & *J. Mater. Sci.*, 53 (2018) 3767-3784).
 
@@ -42,7 +44,7 @@ To install OpenIEC, one should go to the source directory and run:
 - Coherent interfacial energy between FCC_A1 and GAMMA_PRIME
 - Temperature: 800 K
 - Composition: Ni-20at.%Al
-- TDB file: [NiAl.tdb](./demo/NiAl.tdb)
+- TDB file: [NiAlHuang1999.tdb](./demo/NiAlHuang1999.tdb)
 
 Write a script to use OpenIEC as following,
 
@@ -51,7 +53,7 @@ from pycalphad import Database
 from openiec.calculate.calcsigma import SigmaCoherent
 
 # Render thermodynamic database.
-db = Database("NiAl.tdb")
+db = Database("NiAlHuang1999.tdb")
 # Molar volumes of pure components to construct corresponding molar volume database.
 purevms = [[
         "6.718*10.0**(-6.0) + (2.936*10.0**(-5)*10.0**(-6.0))*T**(1.355*10.0**(-6.0))", 
@@ -80,14 +82,14 @@ Output: 0.027399568639258774
 - Solid/liquid interfacial energy between FCC_A1 and Liquid
 - Temperature: 916 K
 - Composition: Al-1at.%Ni
-- TDB file: [AlNi1997.TDB](./demo/AlNi1997.TDB)
+- TDB file: [AlNiAnsara1997.TDB](./demo/AlNiAnsara1997.TDB)
 
 ```python
 from pycalphad import Database
 from openiec.calculate.calcsigma import SigmaSolLiq
 
 # Render thermodynamic database.
-db = Database("AlNi1997.TDB")
+db = Database("AlNiAnsara1997.TDB")
 # Molar volumes of pure components to construct corresponding molar volume database.
 purevms = [[
         "10.269*10.0**(-6.0) + (3.860*10.0**(-5)*10.0**(-6.0))*T**(1.491*10.0**(-6.0))", 
@@ -129,8 +131,8 @@ If you have any questions for the molar volume, you can see the documentation on
 - [Coherent Interfacial Energy](./docs/coherent.md)
 - [Solid/Liquid Interfacial Energy](./docs/solid-liquid.md)
 
-### Impressive results
-- Calculated interfacial energies of coherent *γ*/*γ'* interface in the Ni-Al system using OpenIEC, compared with literature data.
+### Representative results
+- Calculated interfacial energies of coherent *γ*/*γ'* interface in the Ni-Al system using OpenIEC, compared with the literature data.
 <p align="center">
 <img src="./figures/NiAl-coherent.jpg" alt="NiAl-coherent" width="500"/> 
 </p>
@@ -145,4 +147,9 @@ If you have any questions for the molar volume, you can see the documentation on
 - Model-predicted interfacial energy cube of coherent *γ*/*γ'* interface in the Ni-Al-Cr-Re system at 1273 K.
 <p align="center">
 <img src="./figures/NiAlCrRe-coherent-1273K.jpg" alt="NiAlCrRe-coherent" width="580"/> 
+</p>
+
+- Evaluated solid/liquid interfacial energies between Al-rich fcc solid solution and liquid phase in Al-Cu, Al-Ni, Al-Ag, Al-Ti, Al-Mg, Al-Si, Al-Ag-Cu and Al-Cu-Si alloys at eutectic compositions and eutectic temperatures using OpenIEC, compared with the literature data.
+<p align="center">
+<img src="./figures/Al-alloys-solidliquid.jpg" alt="Al-alloys-solidliquid" width="560"/> 
 </p>
