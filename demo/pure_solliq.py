@@ -9,7 +9,7 @@ def pureAlandNi_solliq():
     # Given temperature.
     T = 839
     # Render thermodynamic database.
-    db = Database("AlNi1997.TDB")
+    db = Database("AlNiAnsara1997.TDB")
     # Define elements.
     components = ["AL", "NI"]
     # Two phases separated by the interface.
@@ -52,7 +52,7 @@ def pureAl_solliq():
     # Given temperature.
     T = 800
     # Render thermodynamic database.
-    db = Database("AlNi1997.TDB")
+    db = Database("AlNiAnsara1997.TDB")
     # Define the element.
     comp = "AL"
     # Two phases separated by the interface.
@@ -98,7 +98,7 @@ def pureNi_solliq():
     # Given temperature.
     T = 800
     # Render thermodynamic database.
-    db = Database("AlNi1997.TDB")
+    db = Database("AlNiAnsara1997.TDB")
     # Define the element.
     comp = "NI"
     # Two phases separated by the interface.

@@ -12,7 +12,7 @@ def test():
     # Given initial alloy composition. x0 is the mole fraction of Ni.
     x0 = [0.01] 
     # Render thermodynamic database.
-    db = Database("AlNi1997.TDB")
+    db = Database("AlNiAnsara1997.TDB")
     # Define components in the interface.
     comps = ["AL", "NI"]
     # Two phases separated by the interface.

@@ -1,5 +1,7 @@
-$***********************************************************************
-$***************************  Al-Ni-Ansara-1997.TDB  ****************************
+$ Database file was written according to the following reference.
+$ Ansara I, Dupin N, Lukas HL, Sundman B (1997) Thermodynamic 
+$ assessment of the Al-Ni system. Journal of Alloys and Compounds 
+$ 247 (1-2):20-30
 
 $
 $ ELEMENT STABLE ELEMENT REFERENCE  MASS        H298-H0     S298

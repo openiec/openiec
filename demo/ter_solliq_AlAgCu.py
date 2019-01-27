@@ -11,7 +11,7 @@ def test():
     # Given initial alloy composition. x0 is the mole fraction of Al. x0 corresponds to the mole fractions of Ag and Cu.
     x0 = [0.1648, 0.08]
     # Render thermodynamic database.
-    db = Database("AlAgCu.TDB")
+    db = Database("AlAgCuWitusiewicz2005.TDB")
     # Define components in the interface.
     comps = ["AL", "AG", "CU", "VA"]
     # Two phases separated by the interface.

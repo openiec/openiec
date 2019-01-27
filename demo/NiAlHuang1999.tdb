@@ -1,4 +1,7 @@
-$ Database file written 2015- 3-29
+$ Database file was written according to the following reference.
+$ Huang W, Chang YA (1999) Thermodynamic properties of the Ni-Al-Cr 
+$ system. Intermetallics 7 (8):863-874
+
 $ From database: USER                    
  ELEMENT /-   ELECTRON_GAS              0.0000E+00  0.0000E+00  0.0000E+00!
  ELEMENT VA   VACUUM                    0.0000E+00  0.0000E+00  0.0000E+00!

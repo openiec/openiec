@@ -1,5 +1,8 @@
+$ Database file was written according to the following reference. 
+$ Witusiewicz VT, Hecht U, Fries SG, Rex S (2005) The Ag-Al-Cu system:
+$ II. A thermodynamic evaluation of the ternary system. 
+$ Journal of Alloys and Compounds 387 (1-2):217-227
 
-$ Database file written 2019- 1-25
 $ From database: USER                    
  ELEMENT /-   ELECTRON_GAS              0.0000E+00  0.0000E+00  0.0000E+00!
  ELEMENT VA   VACUUM                    0.0000E+00  0.0000E+00  0.0000E+00!
