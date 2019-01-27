@@ -1,9 +1,11 @@
-<!-- <img src="./figures/openiec.jpg" alt="openiec" width="200"/>  -->
 ## OpenIEC: An open-source code for interfacial energy calculation in alloys
 
-**Designed at Central South University, China**
+<img src="./figures/openiec.jpg" alt="openiec" width="200"/> 
 
-**Developer:** Shenglan Yang, Jing Zhong, Lijun Zhang
+<!-- **Designed at Central South University, China** -->
+<br>
+
+Developed by Shenglan Yang, Jing Zhong, Lijun Zhang at Central South University in China.
 
 **Notes:** If you use OpenIEC in your research or publish, please cite or acknowledge the following work :
 
@@ -11,14 +13,14 @@
 
 OpenIEC is an open-source code for interfacial energy calculation in alloys and was developed by following interfacial energy calculation models on coherent and solid/liquid interfaces developed by George Kaptay (*Acta Mater.*, 60 (2012) 6804-6813 & *J. Mater. Sci.*, 53 (2018) 3767-3784).
 
-For assistance and/or collaboration opportunities, please contact the author by e-mail (@gmail.com) or using the issue tracker on GitHub.
+For assistance and/or collaboration opportunities, please contact the author by mailing <openiec.team@gmail.com> or using the issue tracker on GitHub.
 
 **Framework of OpenIEC code**
 <p align="center">
 <img src="./figures/framework.jpg" alt="framework" width="500"/> 
 </p>
 
-The coupling with the [CALculation of PHAse Diagram (CALPHAD)](https://en.wikipedia.org/wiki/CALPHAD) thermodynamic and molar volume databases was facilitated in OpenIEC for providing the necessary thermodynamic information. For the coupling to thermodynamic database, the integration with the [Pycalphad](https://pycalphad.org) software package is to be performed. With OpenIEC, the temperature- and composition-dependent interfacial energies in alloys with any arbitrary number of components can be conveniently evaluated.
+The coupling with the [CALculation of PHAse Diagram (CALPHAD)](https://en.wikipedia.org/wiki/CALPHAD) thermodynamic and molar volume databases was facilitated in OpenIEC, where the [Pycalphad](https://pycalphad.org) is integrated for providing the necessary thermodynamic information. With OpenIEC, the temperature- and composition-dependent interfacial energies in alloys with any arbitrary number of components can be conveniently evaluated.
 
 OpenIEC is licensed under the MIT License. See [LICENSE.txt](./LICENSE.txt) for details.
 
@@ -67,7 +69,10 @@ sigma = SigmaCoherent(
 # Print the calculated interfacial energy.
 print(sigma.Interfacial_Energy.values)
 
+# Result is printed as following
+'''
 Output: 0.027399568639258774
+'''
 ```
 
 **Calculation of the solid/liquid interfacial energy**
@@ -100,8 +105,10 @@ sigma = SigmaSolLiq(
 # Print the calculated interfacial energy.
 print(sigma.Interfacial_Energy.values) 
 
+# The result is printed as following
+'''
 Output: 0.16942787117258445
-
+'''
 ```
 
 **More Examples**
@@ -111,7 +118,7 @@ Output: 0.16942787117258445
 - [Calculating the solid/liquid interfacial energy of the binary Al-Ni alloy](./demo/bin_solliq_AlNi.py)
 - [Calculating the solid/liquid interfacial energy of the ternary Al-Ag-Cu alloy](./demo/ter_solliq_AlAgCu.py)
 
-*Notes*:  If you run examples in OpenIEC, please enter the demo file in the source directory and type the following code.
+**Notes**:  If you run examples in OpenIEC, please enter the demo file in the source directory and run it with Python.
 
     python ter_solliq_AlAgCu.py
 
