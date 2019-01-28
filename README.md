@@ -86,6 +86,8 @@ For details of this example, you can see [the coherent interfacial energy of the
 - Composition: Al-1at.%Ni
 - TDB file: [AlNiAnsara1997.TDB](./demo/AlNiAnsara1997.TDB)
 
+Write a script to use OpenIEC as following,
+
 ```python
 from pycalphad import Database
 from openiec.calculate.calcsigma import SigmaSolLiq
