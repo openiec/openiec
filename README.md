@@ -77,6 +77,8 @@ Output: 0.027399568639258774
 '''
 ```
 
+For details of this example, you can see [the coherent interfacial energy of the binary Ni-Al alloy](./demo/bin_coherent_NiAl.py).
+
 **Calculation of the solid/liquid interfacial energy**
 - Ni-Al system
 - Solid/liquid interfacial energy between FCC_A1 and Liquid
@@ -112,6 +114,7 @@ print(sigma.Interfacial_Energy.values)
 Output: 0.16942787117258445
 '''
 ```
+For details of this example, you can see [the solid/liquid interfacial energy of the binary Al-Ni alloy](./demo/bin_solliq_AlNi.py).
 
 **More Examples**
 - [Calculating the coherent interfacial energy of the binary Ni-Al alloy](./demo/bin_coherent_NiAl.py)
