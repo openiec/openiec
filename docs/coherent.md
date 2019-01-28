@@ -14,7 +14,7 @@
 - Composition: Ni-20at.%Al
 - TDB file: [NiAlHuang1999.tdb](./demo/NiAlHuang1999.tdb)
 
-Import necessary modules from the `pycalphad`, and `openiec`. `Database` is a class in `pycalphad` designed to input/output information from `TDB` file. `SigmaCoherent` is a class in `openiec` to construct symbolic expression of interfacial energy for coherent phase. 
+Import necessary modules from the `pycalphad` and `openiec`. `Database` is a class in `pycalphad` designed to input/output information from `TDB` file. `SigmaCoherent` is a function in `openiec` to construct symbolic expression of interfacial energy for coherent phase. 
 
 ```python
 from pycalphad import Database
@@ -43,7 +43,7 @@ purevms = [
 ```
 `purevms` is a two-dimension array, and each nested array in `purevms` stores the molar volume of the components, in the order of the components being specified in `SigmaCoherent`. The molar volume for `VA` can be omitted.
 
-The next step is create an object of `SigmaCoherent`, where `comps` and `phasenames` has to be specified in order. (**Note** the molar volume mentioned previously should always follow these orders.) The temperature has been set as `800.0` Kelvin. `x0` stands for the exact composition for interfacial that we intend to compute. As we are dealing with binary system, only the composition for `Ni` is in need, while the composition for `Al` is calculated by `1 - x(Ni)`， internally in `openiec`.
+The next step is create an object of `SigmaCoherent`, where `comps` and `phasenames` has to be specified in order. (**Note** the molar volume mentioned previously should always follow these orders.) The temperature has been set as `800.0` Kelvin. `x0` stands initial alloy composition. As we are dealing with binary system, only the composition for `Al` is in need, while the composition for `Ni` is calculated by `1 - x(Al)`， internally in `openiec`.
 
 
 ```python
