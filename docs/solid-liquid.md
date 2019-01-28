@@ -6,6 +6,8 @@
 - Desired Phases and Components
 - Desired Composition (at.) and Temperature (K)
 
+For detailed instructions of prerequisites, you can reference the documentation on [Coherent Interfacial Energy](./coherent.md).
+
 ### `SigmaSolLiq`
 OpenIEC provides the `SigmaSolLiq` for the calculation of the solid/liquid interfacial energy in alloys. Parameters and return values are listed as following:
 
@@ -45,6 +47,9 @@ def SigmaSolLiq(
         Interfacial energies of pure metal.
     xeq: list
         Two-phase equilibrium composition.
+        In general, two-phase equilibrium composition can be obtained through thermodynamic euqilibrium 
+        calculation, but users can given a two-phase equilbrium composition from the experiment by assigning 
+        a value to this variable.
     limit: list
         The limit of composition for searching interfacial composition in equilibrium.
     dx: float
