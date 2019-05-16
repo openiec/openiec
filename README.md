@@ -11,7 +11,7 @@ Developed by Shenglan Yang, Jing Zhong, Lijun Zhang at Central South University 
 
 **Notes:** If you use OpenIEC in your research or publish, please cite or acknowledge the following work :
 
-> Shenglan Yang, Jing Zhong, Jiong Wang, Lijun Zhang*, George Kaptay. OpenIEC: An open-source code for interfacial energy calculation in alloys. Submitted. 
+> Shenglan Yang, Jing Zhong, Jiong Wang, Lijun Zhang*, George Kaptay, OpenIEC: an open-source code for interfacial energy calculation in alloys. Journal of Materials Science 54.14(2019): 10297–10311. 
 
 OpenIEC is an open-source code for interfacial energy calculation in alloys and was developed by following interfacial energy calculation models on coherent and solid/liquid interfaces developed by George Kaptay (*Acta Mater.*, 60 (2012) 6804-6813 & *J. Mater. Sci.*, 53 (2018) 3767-3784).
 
