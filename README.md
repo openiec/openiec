@@ -56,8 +56,8 @@ from openiec.calculate.calcsigma import SigmaCoherent
 db = Database("NiAlHuang1999.tdb")
 # Molar volumes of pure components to construct corresponding molar volume database.
 purevms = [[
-        "6.718*10.0**(-6.0) + (2.936*10.0**(-5)*10.0**(-6.0))*T**(1.355*10.0**(-6.0))", 
-        "10.269*10.0**(-6.0) + (3.860*10.0**(-5)*10.0**(-6.0))*T**(1.491*10.0**(-6.0))"
+        "6.718*10.0**(-6.0) + (2.936*10.0**(-5)*10.0**(-6.0))*T**1.355",
+        "10.269*10.0**(-6.0) + (3.860*10.0**(-5)*10.0**(-6.0))*T**1.491"
     ],]*2
 # Call the module for calculating coherent interfacial energies.
 sigma = SigmaCoherent(
@@ -73,7 +73,7 @@ print(sigma.Interfacial_Energy.values)
 
 # Result is printed as following
 '''
-Output: 0.027399568639258774
+Output: 0.02662431015735112
 '''
 ```
 
@@ -96,8 +96,8 @@ from openiec.calculate.calcsigma import SigmaSolLiq
 db = Database("AlNiAnsara1997.TDB")
 # Molar volumes of pure components to construct corresponding molar volume database.
 purevms = [[
-        "10.269*10.0**(-6.0) + (3.860*10.0**(-5)*10.0**(-6.0))*T**(1.491*10.0**(-6.0))", 
-        "6.718*10.0**(-6.0) + (2.936*10.0**(-5)*10.0**(-6.0))*T**(1.355*10.0**(-6.0))"
+        "6.718*10.0**(-6.0) + (2.936*10.0**(-5)*10.0**(-6.0))*T**1.355",
+        "10.269*10.0**(-6.0) + (3.860*10.0**(-5)*10.0**(-6.0))*T**1.491"
     ],]*2
 # Call the module for calculating solid/liquid interfacial energies.
 sigma = SigmaSolLiq(
@@ -113,7 +113,7 @@ print(sigma.Interfacial_Energy.values)
 
 # The result is printed as following
 '''
-Output: 0.16942787117258445
+Output: 0.15920587435305622
 '''
 ```
 For details of this example, you can see [the solid/liquid interfacial energy of the binary Al-Ni alloy](./demo/bin_solliq_AlNi.py).
