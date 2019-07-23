@@ -184,7 +184,7 @@ def SigmaSolLiq(
     components = [each for each in comps if each != "VA"]
     cum = int(len(components) - 1)
     print(
-        "\n******************************************************************************\nOpenIEC is looking for interfacial equilibirium coposition.\nFor more information visit http://....../openiec."
+        "\n******************************************************************************\nOpenIEC is looking for interfacial equilibirium coposition.\nFor more information visit https://github.com/openiec/openiec."
     )
     x_s = SearchEquilibrium(Model.objective, [limit] * cum, [dx] * cum)
     x_c = ComputeEquilibrium(Model.objective, x_s["x"])
