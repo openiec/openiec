@@ -18,11 +18,11 @@ def pureAlandNi_solliq():
     # Molar volumes for elements.
     # Molar volume of Al.
     val = 10.269 * 10.0 ** (-6.0) + (3.860 * 10.0 ** (-5) * 10.0 ** (-6.0)) * (
-        T ** (1.491 * 10.0 ** (-6.0))
+        T ** 1.491
     )
     # Molar volume of Ni.
     vni = 6.718 * 10.0 ** (-6.0) + (2.936 * 10.0 ** (-5) * 10.0 ** (-6.0)) * (
-        T ** (1.355 * 10.0 ** (-6.0))
+        T ** 1.355
     )
     vm = [val, vni]
 
@@ -41,7 +41,7 @@ def pureAlandNi_solliq():
 
     # Output
     """
-    [0.1645531537350278, 0.3309305787371839]
+    [0.15574946600009512, 0.3223878512351404]
     """
 
 
@@ -61,7 +61,7 @@ def pureAl_solliq():
     # Molar volumes for elements.
     # Molar volume of Al.
     val = 10.269 * 10.0 ** (-6.0) + (3.860 * 10.0 ** (-5) * 10.0 ** (-6.0)) * (
-        T ** (1.491 * 10.0 ** (-6.0))
+        T ** 1.491
     )
 
     # Call the module for calculating solid/liquid interfacial energies in pure metals.
@@ -81,13 +81,13 @@ def pureAl_solliq():
     Data variables:
         Component           <U2 'AL'
         Temperature         int64 800
-        Melting_enthalpy    float64 1.071e+04
-        Interfacial_Energy  float64 0.1631
+        Melting_Enthalpy    float64 1.071e+04
+        Interfacial_Energy  float64 0.155 
 
     <xarray.DataArray 'Interfacial_Energy' ()>
-    array(0.16314457417486267)
+    array(0.15497715523946845) 
 
-    0.16314457417486267
+    0.15497715523946845
     """
 
 
@@ -107,7 +107,7 @@ def pureNi_solliq():
     # Molar volumes for elements.
     # Molar volume of Ni.    
     vni = 6.718 * 10.0 ** (-6.0) + (2.936 * 10.0 ** (-5) * 10.0 ** (-6.0)) * (
-        T ** (1.355 * 10.0 ** (-6.0))
+        T ** 1.355
     )
 
     # Call the module for calculating solid/liquid interfacial energies in pure metals.
@@ -127,13 +127,13 @@ def pureNi_solliq():
     Data variables:
         Component           <U2 'NI'
         Temperature         int64 800
-        Melting_enthalpy    float64 1.748e+04
-        Interfacial_Energy  float64 0.3291
+        Melting_Enthalpy    float64 1.748e+04
+        Interfacial_Energy  float64 0.3211 
 
     <xarray.DataArray 'Interfacial_Energy' ()>
-    array(0.32906144672934584)
+    array(0.321081580921721) 
 
-    0.32906144672934584
+    0.321081580921721
     """
 
 

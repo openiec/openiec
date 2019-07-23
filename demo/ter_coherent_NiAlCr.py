@@ -19,9 +19,9 @@ def test():
 
     # Molar volumes of pure components to construct corresponding molar volume database.
     # Molar volume of Al.
-    val = "10.269*10.0**(-6.0) + (3.860*10.0**(-5)*10.0**(-6.0))*T**(1.491*10.0**(-6.0))"
+    val = "10.269*10.0**(-6.0) + (3.860*10.0**(-5)*10.0**(-6.0))*T**1.491"
     # Molar volume of Ni.
-    vni = "6.718*10.0**(-6.0) + (2.936*10.0**(-5)*10.0**(-6.0))*T**(1.355*10.0**(-6.0))"
+    vni = "6.718*10.0**(-6.0) + (2.936*10.0**(-5)*10.0**(-6.0))*T**1.355"
     # Molar volume of Cr.
     vcr = "7.23*10.0**(-6.0)"
     purevms = [[vni, val, vcr], ]*2
@@ -57,15 +57,15 @@ def test():
     * Components                  (Components) <U2 'NI' 'AL' 'CR'
     Data variables:
         Temperature                 int64 1273
-        Initial_alloy_composition   (Components) float64 0.8119 0.18 0.0081
-        Interfacial_composition     (Components) float64 0.7981 0.193 0.008884
-        Partial_interfacial_energy  (Components) float64 0.02521 0.02521 0.02521
-        Interfacial_Energy          float64 0.02521
+        Initial_Alloy_Composition   (Components) float64 0.8119 0.18 0.0081
+        Interfacial_Composition     (Components) float64 0.798 0.1931 0.008863
+        Partial_Interfacial_Energy  (Components) float64 0.02378 0.02378 0.02378
+        Interfacial_Energy          float64 0.02378 
 
     <xarray.DataArray 'Interfacial_Energy' ()>
-    array(0.025207507410321697)
+    array(0.023783372796539266) 
 
-    0.025207507410321697
+    0.023783372796539266 
     """
 
 
