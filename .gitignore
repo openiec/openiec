@@ -1,2 +1,4 @@
 build
 deprecated
+dist
+openiec.egg-info
