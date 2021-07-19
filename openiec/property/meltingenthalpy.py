@@ -54,7 +54,7 @@ def MeltingEnthalpy(db, comp, phasenames, debug=False):
     hbeta, halpha = beta["hm"], alpha["hm"]
 
     f = lambda T: fbeta(T) - falpha(T)
-    x = np.linspace(298.15, 3000, 1.0e4)
+    x = np.linspace(298.15, 3000, int(1.0e4))
     v = f(x)
     if debug:
         plt.plot(x, v, "-", label="diff")

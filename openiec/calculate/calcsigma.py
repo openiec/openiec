@@ -55,7 +55,8 @@ def SigmaPure(
         print("Calculated melting enthalpy of %s: " % comp, meltingenthalpy)
     model = SigmaPureMetal(meltingenthalpy, purevm)
     sigma = model.infenergy(T)
-    print("Calculated solid/liquid interfacial energy of %s: " % comp, sigma, "\n")
+    print("Calculated solid/liquid interfacial energy of %s: " %
+          comp, sigma, "\n")
 
     res = Dataset(
         {
@@ -69,7 +70,7 @@ def SigmaPure(
     return res
 
 
-def SigmaSolLiq( 
+def SigmaSolLiq(
     T, x0, db, comps, phasenames, purevms, intervms=[], omega=[], meltingenthalpy=[], sigma0=[], xeq=[], limit=[0, 1.0], dx=0.01,
 ):
     """
@@ -125,7 +126,8 @@ def SigmaSolLiq(
     Return type: xarray Dataset
     """
 
-    phasevm = [MolarVolume(db, phasenames[i], comps, purevms[i]) for i in range(2)]
+    phasevm = [MolarVolume(db, phasenames[i], comps, purevms[i])
+               for i in range(2)]
     _vmis = InterficialMolarVolume(*phasevm)
 
     """Decorate the _vmis to release the constains on temperature"""
@@ -139,7 +141,7 @@ def SigmaSolLiq(
             if comps[i] != "VA"
         ]
 
-    if not (sigma0 and meltingenthalpy):
+    if len(sigma0)==0 and len(meltingenthalpy)==0:
         sigma0 = [
             float(
                 SigmaPure(
@@ -150,11 +152,12 @@ def SigmaSolLiq(
             if comps[i] != "VA"
         ]
 
-    if not sigma0 and meltingenthalpy:
+    if len(sigma0)==0 and len(meltingenthalpy)!=0:
         sigma0 = [
             float(
                 SigmaPure(
-                    T, vmis[i](x0), db, comps[i], phasenames, meltingenthalpy[i]
+                    T, vmis[i](
+                        x0), db, comps[i], phasenames, meltingenthalpy[i]
                 ).Interfacial_Energy.values
             )
             for i in range(len(comps))
@@ -254,7 +257,8 @@ def SigmaCoherent(
 
     Return type: xarray Dataset
     """
-    phasevm = [MolarVolume(db, phasenames[i], comps, purevms[i]) for i in range(2)]
+    phasevm = [MolarVolume(db, phasenames[i], comps, purevms[i])
+               for i in range(2)]
     _vmis = InterficialMolarVolume(*phasevm)
 
     """decorate the _vmis to release the constains on temperature"""
@@ -302,4 +306,3 @@ def SigmaCoherent(
     )
 
     return res
-
