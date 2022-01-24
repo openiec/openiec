@@ -158,3 +158,8 @@ If you have any questions for the molar volume, you can see the documentation on
 <p align="center">
 <img src="./figures/Al-alloys-solidliquid.jpg" alt="Al-alloys-solidliquid" width="560"/> 
 </p>
+
+### Version
+
+- v1.0.0: First release
+- v1.0.1: Add debug information and info error when no melting point is found.

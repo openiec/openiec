@@ -5,7 +5,7 @@ from openiec.model.sigmacoint import SigmaCoherentInterface
 from openiec.property.coherentenergy import CoherentGibbsEnergy
 from openiec.model.sigmasolliq import SigmaPureMetal, SigmaSolidLiquidInterface
 from openiec.property.solliqenergy import SolutionGibbsEnergy, InterfacialGibbsEnergy
-from openiec.property.meltingenthalpy import MeltingEnthalpy as hm
+from openiec.property.meltingenthalpy import MeltingEnthalpy
 from openiec.property.molarinfarea import MolarInterfacialArea
 from openiec.property.molarvolume import MolarVolume, InterficialMolarVolume
 from openiec.calculate.minimize import SearchEquilibrium, ComputeEquilibrium
@@ -18,7 +18,7 @@ from xarray import Dataset
 
 
 def SigmaPure(
-    T, purevm, db=None, comp=None, phasenames=[], meltingenthalpy=None
+    T, purevm, db=None, comp=None, phasenames=[], meltingenthalpy=None, debug=False
 ):
     """Calculate the solid/liquid interfacial energy of the pure metal.
 
@@ -51,7 +51,7 @@ def SigmaPure(
     Return type: xarray Dataset
     """
     if not meltingenthalpy:
-        meltingenthalpy = hm(db, comp, phasenames)
+        meltingenthalpy = MeltingEnthalpy(db, comp, phasenames, debug)
         print("Calculated melting enthalpy of %s: " % comp, meltingenthalpy)
     model = SigmaPureMetal(meltingenthalpy, purevm)
     sigma = model.infenergy(T)
@@ -71,7 +71,7 @@ def SigmaPure(
 
 
 def SigmaSolLiq(
-    T, x0, db, comps, phasenames, purevms, intervms=[], omega=[], meltingenthalpy=[], sigma0=[], xeq=[], limit=[0, 1.0], dx=0.01,
+    T, x0, db, comps, phasenames, purevms, intervms=[], omega=[], meltingenthalpy=[], sigma0=[], xeq=[], limit=[0, 1.0], dx=0.01, debug=False
 ):
     """
     Calculate the solid/liquid interfacial energy in alloys.
@@ -110,7 +110,7 @@ def SigmaSolLiq(
 
     Returns:   
     -----------
-    Components：list of str
+    Components: list of str
         Given components.
     Temperature: float
         Given temperature.
@@ -145,7 +145,7 @@ def SigmaSolLiq(
         sigma0 = [
             float(
                 SigmaPure(
-                    T, vmis[i](x0), db, comps[i], phasenames
+                    T, vmis[i](x0), db, comps[i], phasenames, debug=debug
                 ).Interfacial_Energy.values
             )
             for i in range(len(comps))
@@ -157,7 +157,7 @@ def SigmaSolLiq(
             float(
                 SigmaPure(
                     T, vmis[i](
-                        x0), db, comps[i], phasenames, meltingenthalpy[i]
+                        x0), db, comps[i], phasenames, meltingenthalpy[i], debug=debug
                 ).Interfacial_Energy.values
             )
             for i in range(len(comps))

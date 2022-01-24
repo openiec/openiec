@@ -54,8 +54,9 @@ def MeltingEnthalpy(db, comp, phasenames, debug=False):
     hbeta, halpha = beta["hm"], alpha["hm"]
 
     f = lambda T: fbeta(T) - falpha(T)
-    x = np.linspace(298.15, 3000, int(1.0e4))
+    x = np.linspace(298.15, 3000, 10000)
     v = f(x)
+
     if debug:
         plt.plot(x, v, "-", label="diff")
         plt.plot(x, v * 0.0, "--", label="zero")
@@ -63,8 +64,13 @@ def MeltingEnthalpy(db, comp, phasenames, debug=False):
         plt.plot(x, fbeta(x), label="%s" % phasenames[1])
         plt.legend()
         plt.show()
+
     v = v[0:-1] * v[1:]
     index = np.where(v < 0.0)
+
+    if len(index[0]) == 0:
+        print("[Error] No melting point for the current component is found")
+        return 0
 
     x0 = fsolve(f, x[index])
 
