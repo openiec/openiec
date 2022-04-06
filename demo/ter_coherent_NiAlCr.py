@@ -28,7 +28,7 @@ def test():
 
     # A composition range for searching initial interfacial equilirium composition.
     limit = [0.0001, 0.3]  
-    dx = 0.1
+    dx = 0.05
 
     # Call the module for calculating coherent interfacial energies.
     sigma = SigmaCoherent(
@@ -56,16 +56,16 @@ def test():
     Coordinates:
     * Components                  (Components) <U2 'NI' 'AL' 'CR'
     Data variables:
-        Temperature                 int64 1273
+        Temperature                 int32 1273
         Initial_Alloy_Composition   (Components) float64 0.8119 0.18 0.0081
         Interfacial_Composition     (Components) float64 0.798 0.1931 0.008863
         Partial_Interfacial_Energy  (Components) float64 0.02378 0.02378 0.02378
-        Interfacial_Energy          float64 0.02378 
+        Interfacial_Energy          float64 0.02378
 
     <xarray.DataArray 'Interfacial_Energy' ()>
-    array(0.023783372796539266) 
+    array(0.02378337)
 
-    0.023783372796539266 
+    0.023783372791898554
     """
 
 

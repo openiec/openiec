@@ -3,9 +3,12 @@ Decorate the f to release the constains on temperature.
 """
 
 
-def wraptem(T, f):
-    def g(x):
-        v = f(x, T)
-        return v
+class wraptem(object):
+    def __init__(self, T, func):
+        self.T = T
+        self.func = func
 
-    return g
+    def decfunc(self):
+        def g(x):
+            return self.func(x, self.T)
+        return g

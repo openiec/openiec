@@ -131,7 +131,7 @@ def SigmaSolLiq(
     _vmis = InterficialMolarVolume(*phasevm)
 
     """Decorate the _vmis to release the constains on temperature"""
-    vmis = [wraptem(T, f) for f in _vmis]
+    vmis = [each.decfunc() for each in [wraptem(T, f) for f in _vmis]]
 
     """Calculation for the solid/liquid interfacial energies of pure components"""
     if not omega:
@@ -262,7 +262,7 @@ def SigmaCoherent(
     _vmis = InterficialMolarVolume(*phasevm)
 
     """decorate the _vmis to release the constains on temperature"""
-    vmis = [wraptem(T, f) for f in _vmis]
+    vmis = [each.decfunc() for each in [wraptem(T, f) for f in _vmis]]
 
     model = CoherentGibbsEnergy(T, db, comps, phasenames)
 

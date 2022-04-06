@@ -59,12 +59,12 @@ def test():
         Initial_Alloy_Composition   (Components) float64 0.8 0.2
         Interfacial_Composition     (Components) float64 0.88 0.12
         Partial_Interfacial_Energy  (Components) float64 0.02662 0.02662
-        Interfacial_Energy          float64 0.02662 
+        Interfacial_Energy          float64 0.02662
 
     <xarray.DataArray 'Interfacial_Energy' ()>
-    array(0.026624295275832557) 
+    array(0.0266243)
 
-    0.026624295275832557 
+    0.026624295289653314
     """
 
 

@@ -56,16 +56,16 @@ def test():
     Coordinates:
     * Components                  (Components) <U2 'AL' 'NI'
     Data variables:
-        Temperature                 int64 916
+        Temperature                 int32 916
         Initial_Alloy_Composition   (Components) float64 0.99 0.01
         Interfacial_Composition     (Components) float64 0.996 0.003965
         Partial_Interfacial_Energy  (Components) float64 0.1592 0.1592
-        Interfacial_Energy          float64 0.1592 
+        Interfacial_Energy          float64 0.1592
 
     <xarray.DataArray 'Interfacial_Energy' ()>
-    array(0.1592058880126013) 
+    array(0.15920587)
 
-    0.1592058880126013
+    0.15920587414023074
     """
 
 
