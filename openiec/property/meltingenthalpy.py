@@ -4,8 +4,9 @@ Construct the function of calculating the melting enthalpy of the pure metal.
 
 from pycalphad import equilibrium
 from pycalphad import Database, Model
-import pycalphad.variables as V
-from sympy import lambdify, symbols, sympify, diff
+# import pycalphad.variables as V
+import openiec.variables as V
+from sympy import lambdify, symbols, sympify, diff, Symbol
 from functools import reduce
 import numpy as np
 import matplotlib.pyplot as plt

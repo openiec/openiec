@@ -2,3 +2,5 @@ build
 deprecated
 dist
 openiec.egg-info
+pycalphad-develop
+__pycache__

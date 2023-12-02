@@ -4,7 +4,8 @@ Construct the molar volume CALPHAD model.
 
 import numpy as np
 import sympy as sy
-import pycalphad.variables as V
+# import pycalphad.variables as V
+import openiec.variables as V
 from pycalphad import Database, Model
 from sympy import lambdify, symbols, sympify, diff
 import itertools

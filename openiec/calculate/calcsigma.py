@@ -12,7 +12,8 @@ from openiec.calculate.minimize import SearchEquilibrium, ComputeEquilibrium
 from openiec.utils.decorafunc import wraptem
 from pycalphad import equilibrium
 from pycalphad import Database, Model
-import pycalphad.variables as v
+# import pycalphad.variables as v
+import openiec.variables as v
 import numpy as np
 from xarray import Dataset
 

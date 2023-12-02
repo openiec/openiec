@@ -5,6 +5,7 @@ Construct partial excess Gibbs energy expressions of the bulk phase and the inte
 from pycalphad import equilibrium
 from pycalphad import Database, Model
 import pycalphad.variables as V
+import openiec.variables as v
 from sympy import lambdify, symbols, sympify, diff
 from functools import reduce
 
@@ -51,12 +52,13 @@ class SolutionGibbsEnergy(object):
         )
         pexgm = [exgm + dgmdy[i] - sumpartial for i in range(len(xs))]
 
-        exgm = exgm.subs(vars_xs)
-        pexgm = [each.subs(vars_xs) for each in pexgm]
+        exgm = exgm.subs(dict(vars_xs))
+        pexgm = [each.subs(dict(vars_xs)) for each in pexgm]
 
-        self.lam_exgm = lambdify(self.xxs, exgm, "numpy", dummify=True)
+        xxs = [sympify(xs[i]) for i in range(1, len(xs))]
+        self.lam_exgm = lambdify(xxs, exgm, "numpy", dummify=True)
         self.lam_pexgm = [
-            lambdify(self.xxs, each, "numpy", dummify=True) for each in pexgm
+            lambdify(xxs, each, "numpy", dummify=True) for each in pexgm
         ]
 
 
@@ -99,7 +101,7 @@ class InterfacialGibbsEnergy(object):
         self.xxs = [xs[i] for i in range(1, len(xs))]
 
         sympy_exgm = 0.5 * (exgm1 + exgm2)
-        exgm = sympy_exgm.subs(vars_xs)
+        exgm = sympy_exgm.subs(dict(vars_xs))
 
         dgmdy = [diff(exgm, x) for x in xs]
 
@@ -108,10 +110,12 @@ class InterfacialGibbsEnergy(object):
         )
         pexgm = [exgm + dgmdy[i] - sumpartial for i in range(len(xs))]
 
-        exgm = exgm.subs(vars_xxs)
-        pexgm = [each.subs(vars_xxs) for each in pexgm]
-        self.lam_exgm = lambdify(self.xxs, exgm, "numpy")
+        exgm = exgm.subs(dict(vars_xxs))
+        pexgm = [each.subs(dict(vars_xxs)) for each in pexgm]
+
+        xxs = [sympify(xs[i]) for i in range(1, len(xs))]
+        self.lam_exgm = lambdify(xxs, exgm, "numpy")
         self.lam_pexgm = [
-            lambdify(self.xxs, each, "numpy", dummify=True) for each in pexgm
+            lambdify(xxs, each, "numpy", dummify=True) for each in pexgm
         ]
 
